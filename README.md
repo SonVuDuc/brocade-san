@@ -9,7 +9,7 @@ SAN - Storage Area Network là mạng được thiết kế với mục đính l
 - Hầu hết các SAN đều sử dụng Fibre Channel switch và director
 - Fabric là một mạng lưu trữ ở trong SAN
 - Một SAN có thể chứa nhiều fabric
-- 
+
 ![image](https://user-images.githubusercontent.com/32956424/129702432-7e9241b8-1081-4982-bf24-e5bd99d31c7a.png)
 
 ### Standard Components of Fibre Channel SAN
