@@ -1,9 +1,6 @@
-# Brocade SAN
+# 1. Introduction to Fibre Channel SANs (FCSAN-101)
 
-
-## 1. Introduction to Fibre Channel SANs (FCSAN-101)
-
-### What is a SAN
+## What is a SAN
 
 SAN - Storage Area Network: là một mạng được thiết kế với mục đính là lưu trữ.
 - Hầu hết các SAN đều sử dụng Fibre Channel switch và director.
@@ -12,7 +9,7 @@ SAN - Storage Area Network: là một mạng được thiết kế với mục �
 
 ![image](https://user-images.githubusercontent.com/32956424/129702432-7e9241b8-1081-4982-bf24-e5bd99d31c7a.png)
 
-### Standard Components of Fibre Channel SAN
+## Standard Components of Fibre Channel SAN
 
 Các thành phần cơ bản của hệ thống SAN bao gồm
 
@@ -22,7 +19,7 @@ Các thành phần cơ bản của hệ thống SAN bao gồm
 - Diretor
 - Storage
 
-### Connectivity
+## Connectivity
 
 SAN dùng để kết nối server tới thiết bị lưu trữ để cấp phát và chia sẻ tài nguyên.
 
@@ -45,7 +42,7 @@ Trong Fibre Channel, port được chia ra làm nhiều loại dựa theo cách 
 ![image](https://user-images.githubusercontent.com/32956424/129867599-a4a14d49-3e80-43da-afd8-97a559773419.png)
 
 
-### World Wide Name
+## World Wide Name
 
 World Wide Name (WWN) là một địa chỉ 8 bytes hexadecimal dùng để xác định fibre channel port và node port. Node có thể là HBA, switch, storage controller.  
 
@@ -57,7 +54,7 @@ Ví dụ, một HBA 2 port sẽ có 3 WWN, bao gồm 1 WWNN và 2 WWPN.
 
 Byte thứ 2 trong WWPN thể hiện số thứ tự của port đó trên node.
 
-### Zoning
+## Zoning
 
 Zoning là quá trình phân vùng các thiết bị trong một fabric thành các logical group được gọi là zones
 
@@ -71,7 +68,7 @@ Một thiết bị có thể thuộc nhiều zone cùng lúc
 
 Nhiều thiết bị tạo thành zone, nhiều zone tạo thành zone configuration. Một fabric có thể có nhiều zone configuration nhưng chỉ có một configuration chạy tại một thời điểm. 
 
-### Zone membership
+## Zone membership
 
 Có 2 cách để định nghĩa một thiết bị thuộc zone
 - WWN: có thể dùng WWNN hoặc WWPN của thiết bị để thêm vào zone. Khi zone bằng WWN, thiết bị có thể kết nối vào bất kỳ port nào của switch mà vẫn hoạt động
@@ -79,28 +76,28 @@ Có 2 cách để định nghĩa một thiết bị thuộc zone
 
 ![image](https://user-images.githubusercontent.com/32956424/129910580-187069d4-1afa-47a8-b5e9-fb7f22f01ce3.png)
 
-### Advanced Switch Feature and Tools
+## Advanced Switch Feature and Tools
 
-#### Access Gateway
+### Access Gateway
 
 Access Gateway là một mode đặc biệt chỉ hỗ trợ trên một số loại Brocade switch. Khi một switch đang ở mode Access Gateway mà được kết nối với một fabric, nó sẽ không merge vào fabric đó, mà sẽ hoạt động như một gateway, cho phép các host bên ngoài kết nối vào fabric thông qua nó.
 
-#### Fabric Extension
+### Fabric Extension
 
 Là một công nghệ trong storage networking, cho phép mở rộng phạm vi của fabric. Có 2 giải pháp:
 
 - Long Distance ISLs (LD ISLs): bằng cách sử dụng kết nối bằng long distance optic (dây cáp khoảng cách xa) hoặc Wave Division Multiplexer (ghép các kênh sợi quang theo bước sóng) để kết nối Fibre Channel ISLs giữa 2 switch hoặc director ở khoảng cách lên tới 100km 
 - Fibre Channel over IP (FCIP): là một giao thức sử dụng Fibre Channel và IP để kết nối SAN ở khoảng cách cực xa. Gói tin Fibre Channel được FCIP đóng gói và truyền chúng đi qua mạng IP. FCIP dựa trên giao thức TCP/IP để thiết lập kết nối giữa các SANs ở khoảng cách xa, hình thành kết nối peer-to-peer.
 
-#### Fibre Channel Routing
+### Fibre Channel Routing
 
 Là một tính năng cao cấp của FC routing, được dùng khi có 2 hoặc nhiều hơn fabric cần chia sẻ tài nguyên lưu trữ mà không muốn merge chúng lại với nhau.
 
-#### Trunking
+### Trunking
 
 Dùng để tối ưu lượng băng thông của ISL bằng cách nhóm nhiều đường ISL vật lý thành một đường ISL logic
 
-#### Virtual Fabric
+### Virtual Fabric
 
 Tính năng cho phép ảo hoá một switch hoặc director vật lý thành nhiều switch logic
 
@@ -108,9 +105,9 @@ Tính năng cho phép ảo hoá một switch hoặc director vật lý thành nh
 ![image](https://user-images.githubusercontent.com/32956424/129965456-1f0a0eae-9503-429a-8105-000ea734f678.png)
 
 
-### SAN Fabric Topologies
+## SAN Fabric Topologies
 
-#### Single switch
+### Single switch
 
 Mô hình SAN đơn giản nhất
 
@@ -124,7 +121,7 @@ Mô hình SAN đơn giản nhất
 
 ![image](https://user-images.githubusercontent.com/32956424/129968059-a02b3966-5c91-4191-9f83-5e74101d061a.png)
 
-#### Cascade
+### Cascade
 
 Switch và director kết nối với nhau tạo thành chuỗi
 
@@ -140,7 +137,7 @@ Một node bị lỗi thì cả hệ thống sẽ không hoạt động được
 
 ![image](https://user-images.githubusercontent.com/32956424/129968067-1ffb21b9-cad5-4981-86c3-47b2c61982b8.png)
 
-#### Ring 
+### Ring 
 
 Mô hình khá giống với Cascade, tuy nhiên switch/director cuối cùng trong chuỗi sẽ kết nối với với switch/diretor đầu tiên tạo thành mô hình vòng tròn
 
@@ -153,7 +150,7 @@ Khác với Cascade, khi một node bị lỗi ở trong Ring, hệ thống vẫ
 
 ![image](https://user-images.githubusercontent.com/32956424/129968214-97c78898-6537-47f6-9f2d-cf6c78c375bd.png)
 
-#### Mesh
+### Mesh
 
 Mỗi switch/director đều có kết nối đến mọi switch/director khác trong mạng
 
@@ -168,7 +165,7 @@ Sử dụng swtich/director sẽ tăng khả năng mở rộng
   
 ![image](https://user-images.githubusercontent.com/32956424/129968613-9b430099-56d0-443b-ad55-3f5301dc5a64.png)
 
-#### Core/Edge
+### Core/Edge
 
 Mô hình này chia switch/director thành 2 vai trò
 
@@ -189,7 +186,7 @@ Host và storage có thể kết nối trực tiếp đến core switch tuỳ th
 ![image](https://user-images.githubusercontent.com/32956424/129969298-804184e6-7592-4f60-a0f1-63bae64ddbb9.png)
 
 
-### Fabric Redundancy and Resilientcy
+## Fabric Redundancy and Resilientcy
 
 Thiết kế dual faric cung cấp khả năng redundancy cao
 
