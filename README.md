@@ -32,8 +32,15 @@ Một hệ thống SAN thường bao gồm nhiều fabric để đảm bảo tí
 
 Cả server và storage device đều kết nối đến fabric.
 
+Host server kết nối đến SAN và client. 
 
 ![image](https://user-images.githubusercontent.com/32956424/129834801-5030e525-4ff7-4aa4-a38d-25971c57c85c.png)
+
+Trong Fibre Channel, port được chia ra làm nhiều loại dựa theo cách chúng được sử dụng. Một số port thông dụng bao gồm:
+
+- N_Port: Node port, nằm trên HBA hoặc storage controller, kết nối đến port của switch/director
+- F_Port: Fabric port, nằm trên switch/director và được kết nối đến N_Port
+- E_Port: Expansion port, port dùng để kết nối các switch/director với nhau
 
 ![image](https://user-images.githubusercontent.com/32956424/129867599-a4a14d49-3e80-43da-afd8-97a559773419.png)
 
@@ -163,13 +170,30 @@ Sử dụng swtich/director sẽ tăng khả năng mở rộng
 
 #### Core/Edge
 
+Mô hình này chia switch/director thành 2 vai trò
 
+Switch kết nối với server và storage nằm ở phần rìa ngoài (Edge switch)
+
+Switch kết nối nằm ở trung tâm (Core switch), dùng để kết nối các switch với nhau
+
+Host và storage có thể kết nối trực tiếp đến core switch tuỳ theo trường hợp thiết kế
+
+- Ưu:
+  - Hiệu suất cao
+  - Tính scalablility và availability cao
+  - Khi cần thêm switch mới vào hệ thống, chỉ cần kết nối với core switch
+  - Sử dụng 2 core switch tăng khả năng chịu lỗi
+- Nhược:
+  - Chi phí rất cao
 
 ![image](https://user-images.githubusercontent.com/32956424/129969298-804184e6-7592-4f60-a0f1-63bae64ddbb9.png)
 
 
+### Fabric Redundancy and Resilientcy
 
+Thiết kế dual faric cung cấp khả năng redundancy cao
 
+![image](https://user-images.githubusercontent.com/32956424/129971209-581e98f1-844b-4f82-87fe-c5bc6ad2ff60.png)
 
 
 
