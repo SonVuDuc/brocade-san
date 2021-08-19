@@ -141,19 +141,87 @@ UAM sử dụng 10 bit cho Area ID và 6 bit cho Node Address. Cho phép số l�
 ![image](https://user-images.githubusercontent.com/32956424/130077727-d98971de-bb6a-4916-a6ff-200a2b57f168.png)
 
 
+## Fabric Services
+
+### Fabric Services and Well-Known Address
+
+FC cũng định nghĩa ra các service dùng để quản lý FC network, ví dụ như fabric port login, nameserver registration,...
+
+Thường dùng trong fabric topology
+
+Mỗi service lại có một địa chỉ riêng được gọi là Well-Known Address
+
+![image](https://user-images.githubusercontent.com/32956424/130089423-1e22c9dd-d1fd-47c3-844a-a36ad0c4ccdd.png)
+
+### Common Fabric Service Well-Known Address
+
+Một số service thông dụng và Well-Known Address của nó
+
+Chúng cung cấp dịch vụ cho node hoặc ứng dụng quản lý trong fabric
+
+- FFFFFE (Fabric Login Server): gán địa chỉ 24 bit cho node khi tham gia vào fabric
+- FFFFFD (Fabric Controller): tạo thông báo thay đổi trạng thái tới register node khi có sự thay đổi trong fabric
+- FFFFFC (Directory Server): là nơi mà node register và query để phát hiện các thiết bị trong fabric
+- FFFFFA (Management Server): cho phép các ứng dụng quản lý FC SAN lấy dữ liệu và quản lý fabric 
+
+### Fabric Login
+
+FFFFE
+
+Khi node tham gia vào fabric, nó sẽ tạo fabric login request (FLOGI), trao đổi các tham số dịch vụ với fabric và nhận lại địa chỉ 24 bit
+
+![image](https://user-images.githubusercontent.com/32956424/130095121-0eb8cd0b-5693-491d-8d8f-e756d8c9623b.png)
+
+
+### Name Server
+
+FFFFFC 
+
+Mỗi brocade switch đều chứa một Nameserver để quản lý các thông tin local. 
+
+Name Server cung cấp dịch vụ Name Service cho các thiết bị local.
+
+Thông tin local được chia sẻ giữa các switch và lưu trong Name Server cache.
+
+Khi có thiết bị được kết nối với switch, thông tin sẽ được chia sẻ cho toàn bộ switch trong Fabric. 
+
+Name Server quản lý tất cả thông tin về những thiết bị có kết nối tới fabric
+
+![image](https://user-images.githubusercontent.com/32956424/130099943-e4a1d5e7-59d5-4b37-aa09-56febe053061.png)
+
+Một số lệnh Fabric OS
+
+**nsshow**: hiển thị chi tiết thông tin về các thiết bị kết nối tới switch (Local Name Server)
+
+Các trường bao gồm:
+- Type: loại port (U là unknown, N là N_Port)
+- PID: địa chỉ 24 bit FC
+- COS: Class of Service
+- PortName: PWWN
+- NodeName: NWWN
+- Permanent Port Name: NWWN của port vật lý
+- SCR: State Change Registration
+
+![image](https://user-images.githubusercontent.com/32956424/130116188-377c3bae-1491-417d-af26-bf0d53ac7a81.png)
+
+
+**nscamshow**: hiển thị chi tiết thông tin về các thiết bị kết nối tới switch khác (Remote Name Server)
+
+![image](https://user-images.githubusercontent.com/32956424/130116562-04e62c18-4ff5-45bb-b8dd-9e6d9982c2df.png)
+
+**nsallshow**: hiển thị địa chỉ 24bit của toàn bộ thiết bị trong Fabric
+
+![image](https://user-images.githubusercontent.com/32956424/130117115-1930f9ff-3b50-4f8b-a9b4-d57b4aed668d.png)
 
 
 
+### Fabric Controller
 
+SCR được sử dụng bởi initiator để request thông báo từ fabric khi có trạng thái thay đổi
 
+Server gửi SCR cho Fabric Controller, controller trả về SCR ACC (Accept). Khi nó nếu server thay đổi trạng thái online hay offline thì Fabric Controller sẽ biết được sự thay đổi này.
 
-
-
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/32956424/130117618-e312e6af-c512-4223-8a63-3374b86d3cc9.png)
 
 
 
