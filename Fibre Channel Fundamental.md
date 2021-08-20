@@ -213,8 +213,6 @@ Các trường bao gồm:
 
 ![image](https://user-images.githubusercontent.com/32956424/130117115-1930f9ff-3b50-4f8b-a9b4-d57b4aed668d.png)
 
-
-
 ### Fabric Controller
 
 SCR được sử dụng bởi initiator để request thông báo từ fabric khi có trạng thái thay đổi
@@ -224,10 +222,36 @@ Server gửi SCR cho Fabric Controller, controller trả về SCR ACC (Accept). 
 ![image](https://user-images.githubusercontent.com/32956424/130117618-e312e6af-c512-4223-8a63-3374b86d3cc9.png)
 
 
+## N_Port Virtualization (NPIV)
+
+- Virtual server cũng có những chức năng và kết nối tới storage như một server vật lý
+- NPIV cho phép một server vật lý có thể tạo ra nhiều kết nối riêng biệt cho nhiều virtual server, tăng tính năng bảo mật. Nếu không thì  tất cả LUN  và storage port sẽ exposed và tất cả VM sẽ nhìn thấy được.
+- Các thiết bị NPIV kết nối tới cùng 1 port trên switch đều phải có địa chỉ 24 bit riêng biệt
 
 
+Với NPIV, một HBA có thể tạo ra 255 PWWN riêng biệt
 
+Switch hỗ trợ NPIV có thể gán fabric PID cho từng virtual server khi chúng kết nối vào fabric
 
+Quá trình zoning virtual server hoạt động bình thường như server vật lý
+
+![image](https://user-images.githubusercontent.com/32956424/130165264-6fb74be5-ffd9-4301-9af6-2eef557a1846.png)
+
+Lệnh **nsshow**
+
+Permanent Port Wide Name của các port ở đây là giống nhau, tức là chúng có chung một port vật lý. Nhưng là virtual server nên có PID khác nhau
+
+![image](https://user-images.githubusercontent.com/32956424/130165638-5426713a-cb3f-415e-97c7-c1183aa84f09.png)
+
+Lệnh **portcfgnpivport** có tác dụng enable hoặc disable tính năng NPIV (mặc định enable), đồng thời cũng có thể giới hạn số lầnlogin với mỗi virtual port
+
+Lệnh **portshow*** để xem những thuộc tính của NPIV và tất cả PWWN của N_Port (cả vật lý lẫn virtual) 
+
+![image](https://user-images.githubusercontent.com/32956424/130165890-3c48de1d-3e3c-4a0e-8f79-692c53dedf2a.png)
+
+Lệnh **switchshow** hiển thị F_Port và số lượng thiết bị NPIV đang kết nối với nó 
+
+![image](https://user-images.githubusercontent.com/32956424/130165958-0e1b0792-ad4a-44b2-a5e8-85c57d5f00a2.png)
 
 
 
