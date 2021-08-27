@@ -6,4 +6,6 @@
 
 ## [3. Brocade Switch Gen 7 Hardware](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Switch%20Gen%207%20Hardware.md)
 
+## [7. Brocade Switch Installation and Configuration](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Switch%20Installation%20and%20Configuration.md)
+
 
