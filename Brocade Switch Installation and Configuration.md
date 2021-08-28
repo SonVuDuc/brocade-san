@@ -67,9 +67,32 @@ Với Brocade X7 và X6, cần phải set thêm 2 IP tương ứng với 2 Contr
 VD: Default IP management: 10.77.77.77, IP CP0: 10.77.77.75, IP CP1: 10.77.77.76
 
 
+### Log in through the Ethernet Interface
+
+Có thể có nhiều telnet session cùng lúc
+
+Telnet có thể bị disable bằng lệnh **ipfilter** để kết nối thông qua SSH,
+
+### Set switch configuration parameters
+
+#### Setting the Domain ID
+
+Giá trị mặc định của DID là 1, (1-239)
+
+Mặc dù DID của switch sẽ tự động được gán khi switch enable, tuy nhiên nên thay đổi giá trị DID của switch trước khi kết nối nó vào fabric.
+
+Nếu switch tự động có DID khi bật mà DID bị trùng với một DID khác, sẽ gây ra hiện tượng conflict
 
 
+#### Active Licsensed Feature
 
+Licsensed để kích hoạt các tính năng của switch
+
+Hiển thị licsense ID bằng lệnh **licsense -show -lid**
+
+Để thêm licsense key, dùng lệnh **licsense -install -key <lic_key>**
+
+#### Set Fabric wide clock
 
 
 
