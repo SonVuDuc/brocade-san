@@ -8,4 +8,5 @@
 
 ## [7. Brocade Switch Installation and Configuration](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Switch%20Installation%20and%20Configuration.md)
 
+## [8. Brocade Zoning](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Zoning.md)
 
