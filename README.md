@@ -10,3 +10,5 @@
 
 ## [8. Brocade Zoning](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Zoning.md)
 
+## [9. Brocade Firmware Management Fundamentals](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Firmware%20Management%20Fundamentals.md)
+
