@@ -14,3 +14,5 @@
 
 ## [10. Brocade Fabric Shortest Path First Fundamentals](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Fabric%20Shortest%20Path%20First%20Fundamentals.md)
 
+## [11. Brocade Fibre Channel Trunking Fundamentals](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Fibre%20Channel%20Trunking.md)
+
