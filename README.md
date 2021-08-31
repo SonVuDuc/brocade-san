@@ -12,3 +12,5 @@
 
 ## [9. Brocade Firmware Management Fundamentals](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Firmware%20Management%20Fundamentals.md)
 
+## [10. Brocade Fabric Shortest Path First Fundamentals](https://github.com/SonVuDuc/brocade-san/blob/main/Brocade%20Fabric%20Shortest%20Path%20First%20Fundamentals.md)
+
